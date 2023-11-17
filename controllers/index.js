@@ -25,42 +25,10 @@ getDataClothFromJSON()
 
 const showResult = () =>{
     arrChooseItem.forEach((item) =>{
-        switch(item.type){
-            case "topclothes":
-                document.querySelector('.bikinitop').innerHTML = `<img src=${item.imgSrc_png} class="img-fluid position-relative" style="z-index: 10;" alt="">`
-                
-                break;
-            
-            case "botclothes":
-                document.querySelector('.bikinibottom').innerHTML = `<img src=${item.imgSrc_png} class="img-fluid position-relative" style="z-index: 10;" alt="">`
-                    
-                break;
-
-            case "shoes":
-                document.querySelector('.feet').innerHTML = `<img src=${item.imgSrc_png} class="img-fluid position-relative" style="z-index: 10;" alt="">`
-                
-                break;
-            
-            case "handbags":
-                document.querySelector('.handbag').innerHTML = `<img src=${item.imgSrc_png} class="img-fluid position-relative" style="z-index: 10;" alt="">`
-                
-                break;
-
-            case "necklaces":
-                document.querySelector('.necklace').innerHTML = `<img src=${item.imgSrc_png} class="img-fluid position-relative" style="z-index: 20;" alt="">`
-                    
-                break;
-            
-            case "hairstyle":
-                document.querySelector('.hairstyle').innerHTML = `<img src=${item.imgSrc_png} class="img-fluid position-relative d-block" style="z-index: 10; margin-left: 50px; margin-top: 13px" alt="">`
-                        
-                break;
-
-            case "background":
-                document.querySelector('.background').style.backgroundImage = `url('${item.imgSrc_png}')`
-                        
-                break;
-        }
+        item.type == 'background' ? document.querySelector('.'+item.type).style.backgroundImage = `url('${item.imgSrc_png}')`
+        : item.type == 'necklaces' ? document.querySelector('.'+item.type).innerHTML = `<img src=${item.imgSrc_png} class="img-fluid position-relative" style="z-index: 20;" alt="">`
+        : item.type == 'hairstyle' ? document.querySelector('.'+item.type).innerHTML = `<img src=${item.imgSrc_png} class="img-fluid position-relative d-block" style="z-index: 10; margin-left: 50px; margin-top: 13px" alt="">`
+        : document.querySelector('.'+item.type).innerHTML = `<img src=${item.imgSrc_png} class="img-fluid position-relative" style="z-index: 10;" alt="">`
     })
 }
 
